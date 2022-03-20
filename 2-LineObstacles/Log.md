@@ -33,3 +33,7 @@ The bug occurred.
 ## 3. Modify pheromone evaporation rate &Delta;&tau;
 
 Changing _&Delta;&tau;_ can improve the accuracy, which means the higher chance of returning the expected answer.
+
+## 4. Path length converging at the highest level
+
+The length-iteration diagram was expected to show the convergence at the lowest value instead of the greatest value.
