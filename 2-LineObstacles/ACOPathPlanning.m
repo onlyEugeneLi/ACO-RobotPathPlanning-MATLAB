@@ -8,13 +8,14 @@ close all;
 % 1.1. Environment
 SIZE = 10;
 gridMap = zeros(SIZE); % Environment configuration: 0 for clear path, 1 for obstacles
+gridMap(56) = 1;
 % gridMap(9, 4:8) = 1;
-gridMap(2:9, 5) = 1;
+% gridMap(2:9, 5) = 1;
 % 1.2. Parameters:
 % pheromone, delta pheromone: inverse of the total path length, 
 % heuristic values, number of ants, generations of ants, Alpha: evaporation 
 % rate, Beta: relative importance of pheromone versus distance
-numAnts = 20; % the number of ants in a colony
+numAnts = 30; % the number of ants in a colony
 numGen = 50; % the number of generations (iterations)
 tau = ones(SIZE*SIZE); % Pheromone Matrix Tau(r,s): amount of pheromone on 
                        % the edge from grid r to grid s. In this case, the 
@@ -123,3 +124,4 @@ end % All the ants in this generation finished forage; restart a new generation 
 
 % 3. VISUALISATION
  showPath(gridMap,SIZE, pathStorage, bestGen, bestAnt);
+ showLength(pathLength);
