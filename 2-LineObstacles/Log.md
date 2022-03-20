@@ -37,3 +37,11 @@ Changing _&Delta;&tau;_ can improve the accuracy, which means the higher chance 
 ## 4. Path length converging at the highest level
 
 The length-iteration diagram was expected to show the convergence at the lowest value instead of the greatest value.
+
+![shortest path](robotPathRecords.jpg)
+|:--:| 
+| *Robot path records* |
+
+![diagram](Iterations.jpg)
+|:--:|
+| *Length-Iteration diagram* |
