@@ -28,7 +28,7 @@ The bug occurred.
   gridMap(9, 4:8) = 1;
   gridMap(4:9, 9) = 1;
   ```
-* Check data detail in file [globalDelta.xlsx](docs/1-Non-Obstacle/globalDelta_Bug.xlsx)
+* Check data detail in file [globalDelta.xlsx](ACO-RobotPathPlanning-MATLAB/1-Non-Obstacles/globalDelta_Bug.xlsx)
 
 ## 3. Modify pheromone evaporation rate &Delta;&tau;
 
