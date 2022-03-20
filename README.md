@@ -4,10 +4,10 @@ Final Year Project Logs
 ### Ver. 17 Mar 2022
 * Bug cleared
 * No obstacles in the map
-```
-numAnts = 17;
-numGen = 20;
-```
+  ```
+  numAnts = 17;
+  numGen = 20;
+  ```
 * To ensure to find the diagonal-shortest path, deployed precedent parameters
 
 ### Ver. 20 Mar 2022
