@@ -1,6 +1,6 @@
 # Convergence 
 
-This week should finalise the experiment model.
+This week, I should finalise the experiment model.
 
 ## 📖 Week 8 Meeting on Monday 21 March 2022 - Outlines
   * The ants should converge to the optimal solution in the end.
