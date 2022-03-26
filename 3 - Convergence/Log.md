@@ -9,6 +9,8 @@ This week, I should finalise the experiment model.
 * ✔️Inspect pheromone update process and foraging process
 * ✔️Would be helpful to check ```calcDelta``` ```ConvertXY``` ```tau``` ```deltaTau``` ```pathRecord``` ```globalDelta``` ```pathLength```
 * ✔️ Should expect the converge result in the end
+* Analyse the map size, iterations, number of ants, relative importance, pheromone matrix to solve the convergence issue
+  * Maybe it is not supposed to converge at the minimal value? just close
 
 ## 📍 [Unreleased] 
 
@@ -40,7 +42,7 @@ Focused on pheromone update code.
 
 ### 🔴 Issues
 
-* Collision: In rare cases, robot still collides with obstacles.
+* ✔️ Collision: In rare cases, robot still collides with obstacles.
   * Instead of collision, it is actually flying over to distanced grids because of wrong cost measure **&delta;** set up.
  
 <a href="url"><img src="https://user-images.githubusercontent.com/69563490/160194705-6838f900-4068-4630-9995-6adbf53dbacb.png"  height="350" width="350" ></a>
@@ -111,6 +113,25 @@ When ```numAnts = 10; numGen = 200; ```:
 |:--:| 
 | *Figure 4* |
 
+* Not converge to the minimal path length when increasing the iterations
+
+```numAnts = 50; numGen = 100; alpha = 0.4```
+![issueConverge](https://user-images.githubusercontent.com/69563490/160237959-503e4642-ba08-4c3f-a278-977c8cc69b9d.jpg)
+
+```numAnts = 50; numGen = 200; ```
+![issueNotConverge](https://user-images.githubusercontent.com/69563490/160237977-ffde265e-aa4d-49d5-bd44-2d688664bc09.jpg)
+
+* Fluctuate when relative importance of pheromone are less
+   Could not converge
+   ``` 
+   numAnts = 10; numGen = 100; alpha = 0.4; beta = 7;
+   ...
+   stateTransProb(i) = tau(indexDelta(i)) * eta(indexDelta(i))^beta; 
+   ``` 
+  * Potential sources:
+    Pheromone evaporation rule; 
+
+
 ### 👨‍🔧 Actions
 
 * Modified conditions (line 8) of recognising surrounding grids in function ```calcDelta(arr)```
@@ -149,3 +170,29 @@ When ```numAnts = 10; numGen = 200; ```:
 <a href="url"><img src="https://user-images.githubusercontent.com/69563490/160237213-cb8a038a-f284-42b2-a314-cc0287806c7e.jpg"  height="350" width="360" ></a>
 |:--:| 
 | *Figure 7* |
+
+* Changed relative importance
+
+Works better
+``` 
+numAnts = 10; numGen = 100; alpha = 0.4; beta = 7;
+...
+stateTransProb(i) = tau(indexDelta(i))^5 * eta(indexDelta(i))^beta; 
+``` 
+Result:
+
+<a href="url"><img src="https://user-images.githubusercontent.com/69563490/160238186-ae0f6a43-096f-4dd1-9d04-ba2f65be293b.jpg"  height="350" width="360" ></a>
+|:--:| 
+| *Figure 8* |
+
+Could not converge
+``` 
+numAnts = 10; numGen = 100; alpha = 0.4; beta = 7;
+...
+stateTransProb(i) = tau(indexDelta(i)) * eta(indexDelta(i))^beta; 
+``` 
+Result:
+
+<a href="url"><img src="https://user-images.githubusercontent.com/69563490/160238252-097466f6-45b9-460e-91a7-fc77aacc71e1.jpg"  height="350" width="360" ></a>
+|:--:| 
+| *Figure 9* |
