@@ -196,3 +196,7 @@ Result:
 <a href="url"><img src="https://user-images.githubusercontent.com/69563490/160238252-097466f6-45b9-460e-91a7-fc77aacc71e1.jpg"  height="350" width="360" ></a>
 |:--:| 
 | *Figure 9* |
+
+* Modified relative importance making pheromone more important than heuristic value
+  * It can converge now
+  * How does the example work with heuristic value more important than pheromone??
