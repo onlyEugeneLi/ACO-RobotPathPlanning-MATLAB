@@ -5,10 +5,10 @@ This week, I should finalise the experiment model.
 ## 🔖 To-do list updated on [25-03-2022]
 
 * Learn from the working example code
-* Resolve the flawed condition on line 8 in ```calcDelta``` function
-* Inspect pheromone update process and foraging process
-* Would be helpful to check ```calcDelta``` ```ConvertXY``` ```tau``` ```deltaTau``` ```pathRecord``` ```globalDelta``` ```pathLength```
-* Should expect the converge result in the end
+* ✔️ Resolve the flawed condition on line 8 in ```calcDelta``` function
+* ✔️Inspect pheromone update process and foraging process
+* ✔️Would be helpful to check ```calcDelta``` ```ConvertXY``` ```tau``` ```deltaTau``` ```pathRecord``` ```globalDelta``` ```pathLength```
+* ✔️ Should expect the converge result in the end
 
 ## 📍 [Unreleased] 
 
@@ -16,10 +16,15 @@ This week, I should finalise the experiment model.
 
 * Q - pheromone intensity coefficient can be considered later
 
-### Visualisation ideas
+### Visualisation
 
 * Pheromone intensity map - distinguish each level with a set of colours
   * Maybe show it changing along the iterations
+
+### Compare 'Without pheromone' & 'With Pheromone'
+
+* 📉 Shown difference on line chart: 
+  * Pure lucky & guided by colony's trend
 
 ## 📖 Week 8 Meeting [21-03-2022] - Outlines
   * The ants should converge to the optimal solution in the end.
@@ -29,7 +34,7 @@ This week, I should finalise the experiment model.
   * Mann-whitney test
   * Imitate the excellent example sent by Dr Castellani
 
-## Update [25/03/2022]
+## 🆕 Update [25/03/2022]
 
 Focused on pheromone update code.
 
@@ -39,6 +44,8 @@ Focused on pheromone update code.
   * Instead of collision, it is actually flying over to distanced grids because of wrong cost measure **&delta;** set up.
  
 <a href="url"><img src="https://user-images.githubusercontent.com/69563490/160194705-6838f900-4068-4630-9995-6adbf53dbacb.png"  height="350" width="350" ></a>
+|:--:| 
+| *Figure 1* |
 
 When I changed the code to... (Though that's not the key point)
 ```
@@ -70,3 +77,75 @@ alpha = 0.4;           % the Evaporation rate of pheromone
      if arr(j) == 0 && (abs(i - j) == 11 || abs(i - j) == 10 || abs(i - j) == 9 || abs(i - j) == 1)
      ```
      ❗ abs(i - j) == 10 and abs(i - j) == would recognise girds at the other end of the same column by mistake.
+
+## 🆕 Update [26-03-2022]
+
+Focused on fixing the **condition** of scoping down available surrounding grids in cost measure **&delta;(r, s)** function
+
+### 🔴 Issues
+
+* Fluctuation occurs occasionally 
+  
+  Parameters setting
+  ```
+  SIZE = 10;
+  gridMap = zeros(SIZE); % Environment configuration: 0 for clear path, 1 for obstacles
+  gridMap(5, 2:9) = 1;
+  gridMap(9, 4:8) = 1;
+  gridMap(2:9, 5) = 1;
+  numAnts = 5; % the number of ants in a colony
+  numGen = 200; % the number of generations (iterations)
+  ```
+  
+<a href="url"><img src="https://user-images.githubusercontent.com/69563490/160236214-31d13ecd-4f46-41e4-9dbd-a2a97ce26cf8.jpg"  height="350" width="360" ></a>
+|:--:| 
+| *Figure 2* |
+
+<a href="url"><img src="https://user-images.githubusercontent.com/69563490/160236215-39e162ff-3521-4e80-b7d0-0d6e78f57730.jpg"  height="350" width="360" ></a>
+|:--:| 
+| *Figure 3* |
+
+
+When ```numAnts = 10; numGen = 200; ```:
+<a href="url"><img src="https://user-images.githubusercontent.com/69563490/160236761-4aff3691-0702-4ac1-828d-71ef25940646.jpg"  height="350" width="360" ></a>
+|:--:| 
+| *Figure 4* |
+
+### 👨‍🔧 Actions
+
+* Modified conditions (line 8) of recognising surrounding grids in function ```calcDelta(arr)```
+  * Before update: 
+    ```
+    if arr(j) == 0 && (abs(i - j) == 11 || abs(i - j) == 10 || abs(i - j) == 9 || abs(i - j) == 1)
+    ```
+    Such condition will not only select out surrounding grids, but also grids on the both end of each column, causing issues of fake collision (or flying to the other end) shown in _Figure 1_ in **Issue [25-03-2022]** section.
+    
+  * After update:
+    ```
+    if arr(j) == 0 && (abs(i - j) == 11 || abs(i - j) == 10 || abs(i - j) == 9 || abs(i - j) == 1)
+    [xi, yi] = ConvertXY(i, row);
+    [xj, yj] = ConvertXY(j, row);
+    dis = sqrt((xi - xj)^2 + (yi - yj)^2); % Check the distance
+       if dis <= sqrt(2) % Make sure it's surrouding the current grid
+           D(i, j) = dis; % sqrt((x1 - x2)^2 + (y1 - y2)^2);
+           D(j, i) = dis; % sqrt((x1 - x2)^2 + (y1 - y2)^2);
+       end
+    end
+    ```
+  * Updated results
+  
+  Surprisingly, the convergence issue has been solved after solving the fake collision issue.
+  
+``` numAnts = 20; numGen = 50;```
+<a href="url"><img src="https://user-images.githubusercontent.com/69563490/160237023-cd5970cd-aba7-4039-917d-6441cc0e12ff.jpg"  height="350" width="360" ></a>
+|:--:| 
+| *Figure 5* |
+
+<a href="url"><img src="https://user-images.githubusercontent.com/69563490/160237273-ade0080c-a12d-42b5-9f3d-a84d516946d5.jpg"  height="350" width="360" ></a>
+|:--:| 
+| *Figure 6* |
+
+``` numAnts = 50; numGen = 100; ```
+<a href="url"><img src="https://user-images.githubusercontent.com/69563490/160237213-cb8a038a-f284-42b2-a314-cc0287806c7e.jpg"  height="350" width="360" ></a>
+|:--:| 
+| *Figure 7* |
