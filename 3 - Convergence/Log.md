@@ -200,3 +200,11 @@ Result:
 * Modified relative importance making pheromone more important than heuristic value
   * It can converge now
   * How does the example work with heuristic value more important than pheromone??
+
+
+### Questions
+
+* 报告花多少时间
+* 有些情况会出问题
+* 怎样写好报告
+* 本科毕设需要提出创新的点吗？从什么角度入手比较好
