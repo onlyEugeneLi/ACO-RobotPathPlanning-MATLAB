@@ -2,6 +2,21 @@
 
 At this stage, the main focus is on thinking, questioning, analysing and concluding the work that has been done.
 
+## Report Writing
+
+### General instruction
+
+* From the [blog](https://academia.stackexchange.com/questions/76843/when-writing-a-paper-whats-the-difference-between-contributions-and-objectives)
+
+"Usually, the scheme of a scientific study has a hourglass shape scheme, from wide, to narrow, and wide again.
+
+In the first wide, we use the introduction to describe the general topography and bring focus to a particular problem. Then we narrow down to describe how our experiment is designed, data are collected, analysis is done, etc.
+
+When results are ready, we interpret them, and then again widen up the scope to talk about implications, applications, and recommendations in the Discussion section.
+
+In my opinion, objectives are a list of actions to perform, or questions to answer so that you can complete the narrow part of the study scheme. Contributions are a list of applications or significance to other researchers that brought about by your work, and they are perhaps more fitting in the second wider part of the study scheme." 
+
+
 ## Meeting with Feiying
 
 **Takeaways:**
