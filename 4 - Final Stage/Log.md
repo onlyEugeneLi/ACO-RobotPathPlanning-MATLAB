@@ -51,4 +51,6 @@ Apply it to ACO ensuring that the algorithm converge at the best solution
 
 Refer to this [blog about Elitist Preservation](https://www.cnblogs.com/devilmaycry812839668/p/6445762.html) for the details of the method
 
+[Python example](https://dothinking.github.io/2018-10-27-%E9%81%97%E4%BC%A0%E7%AE%97%E6%B3%95%EF%BC%9A%E6%94%B9%E8%BF%9B%E6%96%B9%E5%90%91%E4%B9%8B%E7%B2%BE%E8%8B%B1%E7%AD%96%E7%95%A5/#:~:text=%E8%87%AA%E9%80%82%E5%BA%94%E7%AD%96%E7%95%A5-,%E7%B2%BE%E8%8B%B1%E4%BF%9D%E7%95%99%E7%AD%96%E7%95%A5,%E4%BF%9D%E7%95%99(Elitist%20Preservation)%20%E7%AD%96%E7%95%A5%E3%80%82)
+
 ## 🚩 
