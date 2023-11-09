@@ -53,21 +53,48 @@
   </ol>
 </details>
 
-
+<img src="image/matlab.png" alt="matlab" width="60"/>
 
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-![](image/final_demo.gif)
+**Why robot path planning matters**: Picture a robot in your local warehouse, deftly weaving through stacks of boxes to fulfill your online shopping orders. Or imagine self-driving cars effortlessly navigating complex city streets. It's all about efficient path planning! 📦🚗
+
+Robot path planning is like a GPS for robots. It helps them find the best way from A to B while dodging obstacles, saving time, and conserving energy. It's the brain behind the bots!
+
+**Enter Ant Colony Optimisation!** Now, here's where it gets exciting. We're introducing ACO, a nature-inspired algorithm that mimics how ants find the shortest path to food. 🐜🍔
+
+ACO is our robot's secret sauce. It's like giving them a sixth sense for navigating tricky terrains. By laying down 'virtual pheromones,' our robots learn and adapt, discovering the optimal routes in changing environments.
+
+### A glimpse at the artificial ant colony
 
 Take a look at the final outcome of the work!
 
+![](image/Demo.gif)
+
+* 🎞️ Above animation visualises how the **artificial ant colony** navigate in a world full of obstacles.
+* 🧀 Their goal is to identify the best (shortest and obstacle-free) route from their nest 🟢 to the food resources 🔴.
+* ⛵ **Exploration**: They firstly bravely explore many possible routes because of no prior knowledge of the world.
+* 🧔 **Learn from excellent peers**: Then they quickly learn from their past experiences.
+* 🥇 **Team work wins!** Eventually, all of them merge on the optimal route!
+
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
+### How it works
 
-# Ant Colony Optimisation (ACO) Algorithms for Robot Path Planning
+- :ant: Ant Colony Optimization (ACO) is like a picnic adventure for ants!
+- :sandwich: Ants need to find the shortest path to their favorite sandwich.
+- :world_map: Many paths to choose from, no GPS for ants!
+- :walking_man: Ants leave scented breadcrumbs called **'pheromones'** as they explore.
+- :nose: Strong pheromone smell means "This way to the sandwich!"
+- :walking_woman: Other ants **follow the strong pheromone trail**.
+- :briefcase: More ants travel the same path, making the trail even stronger.
+- :railway_track: Ants **converge** on the shortest, most efficient route.
+- :robot: ACO mimics this natural process to solve complex problems for computers.
+- :exploding_head: Helps robots find their way through mazes and optimises delivery routes.
+- :earth_americas: Nature's way of showing us how to navigate the world, one picnic at a time! :ant::sandwich::world_map:
 
-This is a project for the award of my Bachelor degree in Mechanical Engineering at University of Birmingham. 
+## Getting started
 
 
 
@@ -97,4 +124,5 @@ Ver. 20 Mar 2022
   * Bug source still not found
  
 <!-- MARKDOWN LINKS & IMAGES -->
-[result-gif]: image/final_demo.gif
+
+[JQuery-url]: https://jquery.com 
