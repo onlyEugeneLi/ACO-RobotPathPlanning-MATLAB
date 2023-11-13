@@ -96,7 +96,47 @@ Take a look at the final outcome of the work!
 
 ## Getting started
 
+<img src="image/PathPlanningAlgorithmsOverview.png" width="550"/>
 
+### Theory
+
+<img src="image/ACO Flowchart.png" width="325"/> <img src="image/aco_diagram.jpg" width="600"/> 
+
+Extensions:
+
+* Ant Colony System
+* Elitist Ant System
+* Max-min Ant System
+
+### Mapping envrionment
+
+Grid mapping method--discretisation of real world scenarios
+
+<img src="image/Map3.jpg" width="300"/> <img src="image/Map_Easy.png" width="350"/> <img src="image/Map_Hard.png" width="350"/> 
+
+### Hyper-parameters optimisation
+
+Its performance and rate of convergence are sensitive to the chosen parameter values, and especially to the value of the pheromone evaporation rate.
+
+<img src="image/ParaSelec_MMAS_1.jpg" width="325"/> <img src="image/ParaSelec_eAS_1.png" width="325"/> <img src="image/ParaSelec_ACS_Mark.jpg" width="325"/> 
+
+### Test and results
+
+**Test Map**
+
+<img src="image/Route Map (1).jpg" width="325"/> <img src="image/Route Map.jpg" width="325"/> <img src="image/Route Map (2).jpg" width="325"/> 
+
+<img src="image/Min path length - data.jpg" width="325"/> <img src="image/Min Path Length-Data (1).jpg" width="325"/>
+
+**Results**
+
+<img src="image/converge_map1.png" width="325"/> <img src="image/route_map1.png" width="500"/>
+
+<img src="image/converge_map2.png" width="325"/> <img src="image/route_map2.png" width="500"/>
+
+## Performance analysis
+
+<img src="image/PerformanceAnalysis_CS.png" width="325"/> <img src="image/PerformanceAnalysis_Runtime.png" width="325"/>
 
 ## Archived Logs
 
